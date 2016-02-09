@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity
                 //What ever you want to do with the value
                 amount = edittext.getText();
                 //OR
-                String eee = edittext.getText().toString();
+                String amounts = edittext.getText().toString();
 
 //
 //                String phoneNumber = "5556";
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity
 
 //
                 String phoneNumber = "5556";
-                String smsBody = "This is an SMS!";
+
 
 // Add the phone number in the data
                 Uri uri = Uri.parse("smsto:" + phoneNumber);
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
                 Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
 // smsIntent.setData(uri); // We just set the data in the constructor above
 // Set the message
-                smsIntent.putExtra("sms_body", smsBody);
+                smsIntent.putExtra("sms_body", amounts);
 
                 startActivity(smsIntent);
 
