@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity
         caecillia = Typeface.createFromAsset(getAssets(), fontpath);
         txt.setTypeface(caecillia);
         ttitle.setTypeface(caecillia);
+        ttitle.setText("Grab A Load !");
         //names.setTypeface(caecillia);
 //        num.setTypeface(caecillia);
 
@@ -131,6 +132,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+           // Toast.makeText().;
 
         } else if (id == R.id.nav_gallery) {
 
