@@ -102,30 +102,29 @@ public class MainActivity extends AppCompatActivity
                 //OR
                 String eee = edittext.getText().toString();
 
+//
+//                String phoneNumber = "5556";
+//                String smsBody = "Message from the API";
+//
+//// Get the default instance of SmsManager
+//                SmsManager smsManager = SmsManager.getDefault();
+//// Send a text based SMS
+//                smsManager.sendTextMessage(phoneNumber, null, smsBody, null, null);
 
+
+//
                 String phoneNumber = "5556";
-                String smsBody = "Message from the API";
+                String smsBody = "This is an SMS!";
 
-// Get the default instance of SmsManager
-                SmsManager smsManager = SmsManager.getDefault();
-// Send a text based SMS
-                smsManager.sendTextMessage(phoneNumber, null, smsBody, null, null);
+// Add the phone number in the data
+                Uri uri = Uri.parse("smsto:" + phoneNumber);
+// Create intent with the action and data
+                Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
+// smsIntent.setData(uri); // We just set the data in the constructor above
+// Set the message
+                smsIntent.putExtra("sms_body", smsBody);
 
-
-//                //NOT WORKING WHY
-//
-//                String phoneNumber = "5554";
-//                String smsBody = "This is an SMS!";
-//
-//// Add the phone number in the data
-//                Uri uri = Uri.parse("smsto:" + phoneNumber);
-//// Create intent with the action and data
-//                Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
-//// smsIntent.setData(uri); // We just set the data in the constructor above
-//// Set the message
-//                smsIntent.putExtra("sms_body", smsBody);
-//
-//                startActivity(smsIntent);
+                startActivity(smsIntent);
 
          }
      });
