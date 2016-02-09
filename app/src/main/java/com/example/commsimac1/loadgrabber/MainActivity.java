@@ -2,8 +2,10 @@ package com.example.commsimac1.loadgrabber;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -78,40 +80,20 @@ public class MainActivity extends AppCompatActivity
         loadbal.setTypeface(caecillia);
 
 
-        //SMS API
+        //NOT WORKING WHY
 
-//        String phoneNumber = "5556";
-//        String smsBody = "Message from the API";
+//        String phoneNumber = "5554";
+//        String smsBody = "This is an SMS!";
 //
-//// Get the default instance of SmsManager
-//        SmsManager smsManager = SmsManager.getDefault();
-//// Send a text based SMS
-//        smsManager.sendTextMessage(phoneNumber, null, smsBody, null, null);
-        //names.setTypeface(caecillia);
-//        num.setTypeface(caecillia);
+//// Add the phone number in the data
+//        Uri uri = Uri.parse("smsto:" + phoneNumber);
+//// Create intent with the action and data
+//        Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
+//// smsIntent.setData(uri); // We just set the data in the constructor above
+//// Set the message
+//        smsIntent.putExtra("sms_body", smsBody);
 
-
-
-        //FONTT
-
-//
-//        NavigationView navView = navigationView;
-//        Menu m = navView.getMenu();
-//        for (int i = 0; i < m.size(); i++) {
-//            MenuItem mi = m.getItem(i);
-//
-//            //for aapplying a font to subMenu ...
-//            SubMenu subMenu = mi.getSubMenu();
-//            if (subMenu != null && subMenu.size() > 0) {
-//                for (int j = 0; j < subMenu.size(); j++) {
-//                    MenuItem subMenuItem = subMenu.getItem(j);
-//                    applyFontToMenuItem(subMenuItem);
-//                }
-//            }
-//
-//            //the method we have create in activity
-//            applyFontToMenuItem(mi);
-//        }
+     //   startActivity(smsIntent);
 
     }
 
