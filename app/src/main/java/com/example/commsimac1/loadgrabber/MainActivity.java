@@ -1,10 +1,13 @@
 package com.example.commsimac1.loadgrabber;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextPaint;
@@ -19,12 +22,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Typeface caecillia;
+
+    TextView ttitle,txt,loadbal,load;
+    Editable amount;
 
 
     @Override
@@ -56,14 +63,18 @@ public class MainActivity extends AppCompatActivity
         String fontpath = "fonts/Caecillia-LightItalic.ttf";
         toolbar.setTitle("Hi");
 
-        TextView txt = (TextView) findViewById(R.id.hello);
-        TextView ttitle = (TextView) findViewById(R.id.toolbar_title);
+        txt = (TextView) findViewById(R.id.textView_devicenum);
+        loadbal = (TextView) findViewById(R.id.textView_loadbalance);
+        load = (TextView) findViewById(R.id.textView_load);
+        ttitle = (TextView) findViewById(R.id.toolbar_title);
         TextView names = (TextView) findViewById(R.id.menu_name);
         TextView num = (TextView) findViewById(R.id.menu_num);
         caecillia = Typeface.createFromAsset(getAssets(), fontpath);
         txt.setTypeface(caecillia);
         ttitle.setTypeface(caecillia);
         ttitle.setText("Grab A Load !");
+        load.setTypeface(caecillia);
+        loadbal.setTypeface(caecillia);
         //names.setTypeface(caecillia);
 //        num.setTypeface(caecillia);
 
@@ -71,25 +82,54 @@ public class MainActivity extends AppCompatActivity
 
         //FONTT
 
+//
+//        NavigationView navView = navigationView;
+//        Menu m = navView.getMenu();
+//        for (int i = 0; i < m.size(); i++) {
+//            MenuItem mi = m.getItem(i);
+//
+//            //for aapplying a font to subMenu ...
+//            SubMenu subMenu = mi.getSubMenu();
+//            if (subMenu != null && subMenu.size() > 0) {
+//                for (int j = 0; j < subMenu.size(); j++) {
+//                    MenuItem subMenuItem = subMenu.getItem(j);
+//                    applyFontToMenuItem(subMenuItem);
+//                }
+//            }
+//
+//            //the method we have create in activity
+//            applyFontToMenuItem(mi);
+//        }
 
-        NavigationView navView = navigationView;
-        Menu m = navView.getMenu();
-        for (int i = 0; i < m.size(); i++) {
-            MenuItem mi = m.getItem(i);
+    }
 
-            //for aapplying a font to subMenu ...
-            SubMenu subMenu = mi.getSubMenu();
-            if (subMenu != null && subMenu.size() > 0) {
-                for (int j = 0; j < subMenu.size(); j++) {
-                    MenuItem subMenuItem = subMenu.getItem(j);
-                    applyFontToMenuItem(subMenuItem);
-                }
+    public void btnGrabPressed(View view){
+
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        final EditText edittext = new EditText(MainActivity.this);
+        alert.setMessage("PHP: ");
+        alert.setTitle("Enter Amount: ");
+
+        alert.setView(edittext);
+
+        alert.setPositiveButton("GRAB", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //What ever you want to do with the value
+                amount = edittext.getText();
+                //OR
+                String eee = edittext.getText().toString();
             }
+        });
 
-            //the method we have create in activity
-            applyFontToMenuItem(mi);
-        }
+        alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // what ever you want to do with No option.
 
+            }
+        });
+        alert.show();
     }
 
     @Override
@@ -133,8 +173,13 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
            // Toast.makeText().;
+            txt.setText("You pressed Home.");
+            Toast.makeText(getApplicationContext(),"Home",Toast.LENGTH_LONG).show();
+
 
         } else if (id == R.id.nav_gallery) {
+
+
 
         } else if (id == R.id.nav_slideshow) {
 
