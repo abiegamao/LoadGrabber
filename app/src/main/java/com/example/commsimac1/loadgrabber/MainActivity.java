@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity
                 String eee = edittext.getText().toString();
 
 
-                String phoneNumber = "5554";
+                String phoneNumber = "5556";
                 String smsBody = "Message from the API";
 
 // Get the default instance of SmsManager
