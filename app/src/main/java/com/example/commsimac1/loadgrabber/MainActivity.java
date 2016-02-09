@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -75,6 +76,17 @@ public class MainActivity extends AppCompatActivity
         ttitle.setText("Grab A Load !");
         load.setTypeface(caecillia);
         loadbal.setTypeface(caecillia);
+
+
+        //SMS API
+
+//        String phoneNumber = "5556";
+//        String smsBody = "Message from the API";
+//
+//// Get the default instance of SmsManager
+//        SmsManager smsManager = SmsManager.getDefault();
+//// Send a text based SMS
+//        smsManager.sendTextMessage(phoneNumber, null, smsBody, null, null);
         //names.setTypeface(caecillia);
 //        num.setTypeface(caecillia);
 
