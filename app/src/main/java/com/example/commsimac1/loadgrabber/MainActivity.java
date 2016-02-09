@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity
         final AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
         final EditText edittext = new EditText(MainActivity.this);
-        alert.setMessage("PHP: ");
+        alert.setMessage("PHP");
         alert.setTitle("Enter Amount: ");
 
         alert.setView(edittext);
@@ -126,10 +126,34 @@ public class MainActivity extends AppCompatActivity
         alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 // what ever you want to do with No option.
+                dialog.dismiss();
 
             }
         });
         alert.show();
+    }
+
+    public void btnInquirePressed(View view){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure?");
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+
     }
 
     @Override
