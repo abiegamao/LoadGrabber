@@ -80,20 +80,7 @@ public class MainActivity extends AppCompatActivity
         loadbal.setTypeface(caecillia);
 
 
-        //NOT WORKING WHY
 
-//        String phoneNumber = "5554";
-//        String smsBody = "This is an SMS!";
-//
-//// Add the phone number in the data
-//        Uri uri = Uri.parse("smsto:" + phoneNumber);
-//// Create intent with the action and data
-//        Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
-//// smsIntent.setData(uri); // We just set the data in the constructor above
-//// Set the message
-//        smsIntent.putExtra("sms_body", smsBody);
-
-     //   startActivity(smsIntent);
 
     }
 
@@ -114,8 +101,34 @@ public class MainActivity extends AppCompatActivity
                 amount = edittext.getText();
                 //OR
                 String eee = edittext.getText().toString();
-            }
-        });
+
+
+                String phoneNumber = "5554";
+                String smsBody = "Message from the API";
+
+// Get the default instance of SmsManager
+                SmsManager smsManager = SmsManager.getDefault();
+// Send a text based SMS
+                smsManager.sendTextMessage(phoneNumber, null, smsBody, null, null);
+
+
+//                //NOT WORKING WHY
+//
+//                String phoneNumber = "5554";
+//                String smsBody = "This is an SMS!";
+//
+//// Add the phone number in the data
+//                Uri uri = Uri.parse("smsto:" + phoneNumber);
+//// Create intent with the action and data
+//                Intent smsIntent = new Intent(Intent.ACTION_SENDTO, uri);
+//// smsIntent.setData(uri); // We just set the data in the constructor above
+//// Set the message
+//                smsIntent.putExtra("sms_body", smsBody);
+//
+//                startActivity(smsIntent);
+
+         }
+     });
 
         alert.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
